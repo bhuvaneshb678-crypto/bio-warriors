@@ -356,7 +356,7 @@ def ensure_question_bank(conn):
         ("Which organelle is known for intracellular digestion?", "Lysosome", "Ribosome", "Nucleolus", "Chloroplast", "A", "Lysosomes contain enzymes for intracellular digestion.", "Cell Biology", "Medium"),
         ("Which hormone is mainly associated with the fight-or-flight response?", "Insulin", "Adrenaline", "Melatonin", "Calcitonin", "B", "Adrenaline is a key hormone in the acute fight-or-flight response.", "Physiology", "Easy"),
     ]
-    existing = {r[0] for r in conn.execute("SELECT question FROM questions").fetchall()}
+    existing = {r["question"] for r in conn.execute("SELECT question FROM questions").fetchall()}
     now = datetime.now().isoformat(timespec="seconds")
     rows = [q + (now,) for q in extras if q[0] not in existing]
     if rows:
