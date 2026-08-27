@@ -1837,8 +1837,8 @@ def api_leaderboard():
 # START
 # ============================================================
 
+init_db()
 if __name__ == "__main__":
-    init_db()
     print("=" * 60)
     print("BIO WARRIORS IS STARTING")
     print("Admin login: admin / admin123")
